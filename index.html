@@ -3,45 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Card Buddy</title>
+    <title>Fill In The Blanks Card Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="card-container">
-        <h1>Create Your Birthday Card</h1>
-        <form id="card-form">
-            <label for="friendName">Friend's Name:</label>
-            <input type="text" id="friendName" required>
-            <label for="birthdayMessage">Message:</label>
-            <textarea id="birthdayMessage" required></textarea>
-            <button type="submit">Generate Card</button>
-        </form>
-        <div id="card-output" class="hidden">
-            <h2 id="output-name"></h2>
-            <p id="output-message"></p>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Fill-In-The-Blanks Card Generator</h1>
+        <p>Because birthday cards shouldn't be boring</p>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+
+        <!-- LEFT PANEL -->
+        <div class="form-panel">
+            <h2>Make Your Card</h2>
+
+            <form id="card-form">
+                <label>Name:</label>
+                <input type="text" id="friendName" required>
+
+                <label>Age:</label>
+                <input type="number" id="age" required>
+
+                <label>Hobby:</label>
+                <input type="text" id="hobby" required>
+
+                <label>Adjective:</label>
+                <input type="text" id="adjective" required>
+
+                <label>Plural Noun:</label>
+                <input type="text" id="pluralNoun" required>
+
+                <button type="button">I'm Feeling Lucky</button>
+                <button type="submit">Generate Card</button>
+            </form>
         </div>
-        <audio id="audio-player" controls class="hidden">
-            <source src="birthday_song.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+
+        <!-- RIGHT PANEL -->
+        <div class="preview-panel">
+            <h2>Your Card</h2>
+
+            <div id="card-output" class="card hidden">
+                <h3 id="output-title"></h3>
+                <p id="output-message"></p>
+            </div>
+
+            <div class="all-cards">
+                <h3>All Cards (0)</h3>
+                <button>Clear All</button>
+            </div>
+        </div>
+
     </div>
+
     <script>
         const form = document.getElementById('card-form');
-        const nameOutput = document.getElementById('output-name');
-        const messageOutput = document.getElementById('output-message');
         const cardOutput = document.getElementById('card-output');
-        const audioPlayer = document.getElementById('audio-player');
+        const outputTitle = document.getElementById('output-title');
+        const outputMessage = document.getElementById('output-message');
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            const friendName = document.getElementById('friendName').value;
-            const birthdayMessage = document.getElementById('birthdayMessage').value;
 
-            nameOutput.textContent = `Happy Birthday, ${friendName}!`;
-            messageOutput.textContent = birthdayMessage;
+            const name = document.getElementById('friendName').value;
+            const age = document.getElementById('age').value;
+            const hobby = document.getElementById('hobby').value;
+            const adjective = document.getElementById('adjective').value;
+            const pluralNoun = document.getElementById('pluralNoun').value;
+
+            outputTitle.textContent = `Happy ${age}th Birthday, ${name}!`;
+            outputMessage.textContent = 
+                `Hope your day is ${adjective} and filled with ${pluralNoun} while enjoying ${hobby}!`;
+
             cardOutput.classList.remove('hidden');
-            audioPlayer.classList.remove('hidden');
         });
     </script>
+
 </body>
 </html>
