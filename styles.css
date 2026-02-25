@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* MAIN LAYOUT */
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* LEFT PANEL */
+.form-panel {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* RIGHT PANEL */
+.preview-panel {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+/* CARD PREVIEW */
+.card {
+    padding: 20px;
+    border: 1px solid #aaa;
+    margin-top: 10px;
+}
+
+/* BUTTONS */
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* HIDDEN CLASS */
+.hidden {
+    display: none;
+}
